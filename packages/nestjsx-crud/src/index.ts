@@ -1,24 +1,24 @@
-import axios, { AxiosInstance } from "axios";
 import {
+    ComparisonOperator,
+    CondOperator,
+    QueryJoin,
+    QueryJoinArr,
     QuerySort,
     QuerySortArr,
     QuerySortOperator,
     RequestQueryBuilder,
-    CondOperator,
-    ComparisonOperator,
     SCondition,
-    QueryJoin,
-    QueryJoinArr,
 } from "@nestjsx/crud-request";
 import {
-    DataProvider,
-    HttpError,
+    CrudFilter,
     CrudFilters as RefineCrudFilter,
     CrudOperators,
     CrudSorting,
-    CrudFilter,
+    DataProvider,
+    HttpError,
     Pagination,
 } from "@refinedev/core";
+import axios, { AxiosInstance } from "axios";
 import { stringify } from "query-string";
 
 type SortBy = QuerySort | QuerySortArr | Array<QuerySort | QuerySortArr>;
@@ -191,10 +191,17 @@ const NestsxCrud = (
 
         const { data } = await httpClient.get(`${url}?${query.query()}`);
 
-        return {
-            data: data.data,
-            total: data.total,
-        };
+        if (pagination?.mode == "off") {
+            return {
+                data: data,
+                total: data.length,
+            };
+        } else {
+            return {
+                data: data.data,
+                total: data.total,
+            };
+        }
     },
 
     getMany: async ({ resource, ids, meta }) => {
