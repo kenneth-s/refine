@@ -71,7 +71,7 @@ export const notificationProvider = (): NotificationProvider => {
                                 "&::before": { display: "none" },
                             },
                         },
-                        disallowClose: true,
+                        withCloseButton: true,
                         autoClose: false,
                     });
                 } else {
@@ -108,7 +108,7 @@ export const notificationProvider = (): NotificationProvider => {
                                 "&::before": { display: "none" },
                             },
                         },
-                        disallowClose: true,
+                        withCloseButton: true,
                         autoClose: false,
                     });
                 }

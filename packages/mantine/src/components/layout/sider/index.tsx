@@ -257,10 +257,6 @@ export const Sider: React.FC<RefineLayoutSiderProps> = ({
                     zIndex={1200}
                     withCloseButton={false}
                     styles={{
-                        drawer: {
-                            overflow: "hidden",
-                            backgroundColor: "#2A132E",
-                        },
                     }}
                 >
                     <Navbar.Section px="xs">

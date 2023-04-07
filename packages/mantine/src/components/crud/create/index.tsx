@@ -104,7 +104,7 @@ export const Create: React.FC<CreateProps> = (props) => {
         : defaultFooterButtons;
 
     return (
-        <Card p="md" {...wrapperProps}>
+        <Card p="md" {...wrapperProps}>           
             <LoadingOverlay visible={loadingOverlayVisible} />
             <Group position="apart" align="center" {...headerProps}>
                 <Stack spacing="xs">

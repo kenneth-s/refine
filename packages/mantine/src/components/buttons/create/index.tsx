@@ -69,7 +69,7 @@ export const CreateButton: React.FC<CreateButtonProps> = ({
     if (accessControlEnabled && hideIfUnauthorized && !data?.can) {
         return null;
     }
-
+    console.log(rest);
     return (
         <Anchor
             component={ActiveLink as any}
@@ -90,7 +90,6 @@ export const CreateButton: React.FC<CreateButtonProps> = ({
                 <ActionIcon
                     title={disabledTitle()}
                     disabled={data?.can === false}
-                    color="primary"
                     {...(variant
                         ? {
                               variant:
@@ -108,8 +107,8 @@ export const CreateButton: React.FC<CreateButtonProps> = ({
                     leftIcon={<IconSquarePlus size={18} {...svgIconProps} />}
                     title={disabledTitle()}
                     data-testid={RefineButtonTestIds.CreateButton}
-                    color="primary"
                     variant="filled"
+                    color="brand"
                     {...rest}
                 >
                     {children ?? translate("buttons.create", "Create")}
